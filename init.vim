@@ -7,12 +7,12 @@
 call plug#begin(stdpath('data').'/plugged')
 
 Plug 'ryanoasis/vim-devicons'
-Plug 'mhartington/oceanic-next'
+" Plug 'mhartington/oceanic-next'
 Plug 'neoclide/coc.nvim', {'branch':'release' }
 Plug 'scrooloose/NERDTree'
 Plug 'mattn/emmet-vim'
-
-
+Plug 'Yggdroot/indentLine'
+Plug 'joshdick/onedark.vim'
 call plug#end()
 
 " config for vim-devicons 
@@ -22,7 +22,7 @@ set encoding=UTF-8
 
 
 set termguicolors
-colorscheme OceanicNext
+colorscheme onedark
 
 
 "basic configuration 
@@ -240,18 +240,29 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
 " config for emmet-vim plugin 
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+let g:user_emmet_install_global = 1
+"autocmd FileType html,css,js.ts.jsx.tsx EmmetInstall
 
 
 
 " config for nedrTree
 " Start NERDTree and leave the cursor in it.
 " Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
+" autocmd VimEnter * NERDTree | wincmd p
 
 
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+
+let g:indentLine_setColors = 0
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+" none X terminal
+let g:indentLine_color_tty_light = 7 " (default: 4)
+let g:indentLine_color_dark = 1 " (default: 2)
+
+" Background (Vim, GVim)
+" let g:indentLine_bgcolor_term = 202
+" let g:indentLine_bgcolor_gui = '#FF5F00'
